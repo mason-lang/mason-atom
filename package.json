@@ -1,0 +1,9 @@
+{
+	"name": "mason-atom",
+	"description": "Mason grammar for Atom",
+	"version": "0.0.0",
+	"private": true,
+	"main": "",
+	"repository": "https://github.com/mason-lang/mason-atom",
+	"license": "WTFPL"
+}

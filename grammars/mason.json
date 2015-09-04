@@ -1,0 +1,324 @@
+{
+	"name": "mason",
+	"scopeName": "source.mason",
+	"fileTypes": [
+		"ms"
+	],
+	"patterns": [
+		{
+			"name": "string",
+			"begin": "^\\t{0}[^\\t\"]*\"$",
+			"end": "^\\t{,0}(?=[^\\t])",
+			"patterns": [
+				{
+					"name": "constant.character.escape",
+					"match": "\\\\."
+				},
+				{
+					"name": "variable.interpolation",
+					"match": "\\{[^\\}]*\\}"
+				}
+			]
+		},
+		{
+			"name": "string",
+			"begin": "^\\t{1}[^\\t\"]*\"$",
+			"end": "^\\t{,1}(?=[^\\t])",
+			"patterns": [
+				{
+					"name": "constant.character.escape",
+					"match": "\\\\."
+				},
+				{
+					"name": "variable.interpolation",
+					"match": "\\{[^\\}]*\\}"
+				}
+			]
+		},
+		{
+			"name": "string",
+			"begin": "^\\t{2}[^\\t\"]*\"$",
+			"end": "^\\t{,2}(?=[^\\t])",
+			"patterns": [
+				{
+					"name": "constant.character.escape",
+					"match": "\\\\."
+				},
+				{
+					"name": "variable.interpolation",
+					"match": "\\{[^\\}]*\\}"
+				}
+			]
+		},
+		{
+			"name": "string",
+			"begin": "^\\t{3}[^\\t\"]*\"$",
+			"end": "^\\t{,3}(?=[^\\t])",
+			"patterns": [
+				{
+					"name": "constant.character.escape",
+					"match": "\\\\."
+				},
+				{
+					"name": "variable.interpolation",
+					"match": "\\{[^\\}]*\\}"
+				}
+			]
+		},
+		{
+			"name": "string",
+			"begin": "^\\t{4}[^\\t\"]*\"$",
+			"end": "^\\t{,4}(?=[^\\t])",
+			"patterns": [
+				{
+					"name": "constant.character.escape",
+					"match": "\\\\."
+				},
+				{
+					"name": "variable.interpolation",
+					"match": "\\{[^\\}]*\\}"
+				}
+			]
+		},
+		{
+			"name": "string",
+			"begin": "^\\t{5}[^\\t\"]*\"$",
+			"end": "^\\t{,5}(?=[^\\t])",
+			"patterns": [
+				{
+					"name": "constant.character.escape",
+					"match": "\\\\."
+				},
+				{
+					"name": "variable.interpolation",
+					"match": "\\{[^\\}]*\\}"
+				}
+			]
+		},
+		{
+			"name": "string",
+			"begin": "^\\t{6}[^\\t\"]*\"$",
+			"end": "^\\t{,6}(?=[^\\t])",
+			"patterns": [
+				{
+					"name": "constant.character.escape",
+					"match": "\\\\."
+				},
+				{
+					"name": "variable.interpolation",
+					"match": "\\{[^\\}]*\\}"
+				}
+			]
+		},
+		{
+			"name": "string",
+			"begin": "^\\t{7}[^\\t\"]*\"$",
+			"end": "^\\t{,7}(?=[^\\t])",
+			"patterns": [
+				{
+					"name": "constant.character.escape",
+					"match": "\\\\."
+				},
+				{
+					"name": "variable.interpolation",
+					"match": "\\{[^\\}]*\\}"
+				}
+			]
+		},
+		{
+			"name": "string",
+			"begin": "^\\t{8}[^\\t\"]*\"$",
+			"end": "^\\t{,8}(?=[^\\t])",
+			"patterns": [
+				{
+					"name": "constant.character.escape",
+					"match": "\\\\."
+				},
+				{
+					"name": "variable.interpolation",
+					"match": "\\{[^\\}]*\\}"
+				}
+			]
+		},
+		{
+			"name": "string",
+			"begin": "^\\t{9}[^\\t\"]*\"$",
+			"end": "^\\t{,9}(?=[^\\t])",
+			"patterns": [
+				{
+					"name": "constant.character.escape",
+					"match": "\\\\."
+				},
+				{
+					"name": "variable.interpolation",
+					"match": "\\{[^\\}]*\\}"
+				}
+			]
+		},
+		{
+			"name": "string",
+			"begin": "\"",
+			"end": "\"|(.(?=\\n))",
+			"patterns": [
+				{
+					"name": "constant.character.escape",
+					"match": "\\\\."
+				},
+				{
+					"name": "variable.interpolation",
+					"match": "\\{[^\\}]*\\}"
+				}
+			],
+			"endCaptures": {
+				"1": {
+					"name": "invalid.illegal"
+				}
+			}
+		},
+		{
+			"name": "comment",
+			"match": "\\|\\s.*"
+		},
+		{
+			"name": "entity.name.section",
+			"match": "^\\s*(region)[^\\n]*\\n",
+			"captures": {
+				"1": {
+					"name": "comment"
+				}
+			}
+		},
+		{
+			"name": "invalid.illegal",
+			"match": "(await|enum|implements|interface|package|private|protected|public)\\s"
+		},
+		{
+			"name": "invalid.illegal",
+			"match": "(arguments|const|delete|eval|instanceof|let|return|typeof|var|void|while)\\s"
+		},
+		{
+			"name": "invalid.illegal",
+			"match": "(abstract|await!|final|gen!?|goto!|is|isa|of!?|to|until!?|while!?)\\s"
+		},
+		{
+			"name": "keyword",
+			"match": "(_|->|<~|<~~|and|as|break|built|case|catch|class|cond|debug|debugger|do|else|except|false|@for~?|for|get|if|ignore|in|name|new|not|null|or|out|pass|static|switch|this|true|try|undefined|unless|use|use-debug|with)\\s"
+		},
+		{
+			"name": "keyword",
+			"match": "super(\\(\\)|\\s|\\.)"
+		},
+		{
+			"name": "keyword.other.special-method",
+			"match": "super!\\s"
+		},
+		{
+			"name": "keyword.other.special-method",
+			"match": "(assert!|break!|case!|catch!|construct!|do!|except!|finally!|forbid!|for!|if!|set!|switch!|throw!|try!|unless!|use!)\\s"
+		},
+		{
+			"name": "keyword",
+			"match": "\\~"
+		},
+		{
+			"name": "punctuation.section.embedded",
+			"match": "[\\(\\[\\]\\)]"
+		},
+		{
+			"name": "constant.numeric",
+			"match": "-?0(b|o|x)[0-9a-f]+",
+			"captures": {
+				"1": {
+					"name": "constant.character.escape"
+				}
+			}
+		},
+		{
+			"name": "constant.numeric",
+			"match": "-?\\d+(\\.\\d+)?"
+		},
+		{
+			"name": "support.type",
+			"match": "(:)\\S+",
+			"captures": {
+				"1": {
+					"name": "comment"
+				}
+			}
+		},
+		{
+			"name": "keyword",
+			"match": "\\."
+		},
+		{
+			"name": "keyword.other.unit",
+			"match": "[^\\.\\s]+!"
+		},
+		{
+			"name": "variable",
+			"begin": "(\\~?!?\\|)",
+			"end": "\\n",
+			"patterns": [
+				{
+					"name": "support.type",
+					"match": "(:)\\S+",
+					"captures": {
+						"1": {
+							"name": "comment"
+						}
+					}
+				},
+				{
+					"name": "comment",
+					"match": "#.*"
+				}
+			],
+			"beginCaptures": {
+				"1": {
+					"name": "comment"
+				}
+			}
+		},
+		{
+			"name": "entity.other.attribute-name",
+			"match": "([^\\s\\.:]+)((:)([^\\s\\.]+))?((\\.)|\\s((=)|(:=|::=)|(<~~?)))\\s",
+			"captures": {
+				"3": {
+					"name": "comment"
+				},
+				"4": {
+					"name": "support.type"
+				},
+				"6": {
+					"name": "comment"
+				},
+				"8": {
+					"name": "comment"
+				},
+				"9": {
+					"name": "entity.name.tag"
+				},
+				"10": {
+					"name": "keyword"
+				}
+			}
+		},
+		{
+			"name": "constant.language",
+			"match": "\\S+(_)",
+			"captures": {
+				"1": {
+					"name": "keyword"
+				}
+			}
+		},
+		{
+			"name": "invalid.illegal",
+			"match": "[`%^&\\\\';,]"
+		},
+		{
+			"name": "none",
+			"match": "[^\\s\\.\\:\\(\\)\\[\\]]+"
+		}
+	]
+}
