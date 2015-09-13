@@ -5,5 +5,9 @@
 	"private": true,
 	"main": "",
 	"repository": "https://github.com/mason-lang/mason-atom",
-	"license": "WTFPL"
+	"license": "WTFPL",
+	"devDependencies": {
+		"amdefine": "1.0.0",
+		"msl": "mason-lang/msl"
+	}
 }

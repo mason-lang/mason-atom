@@ -198,11 +198,11 @@
 		},
 		{
 			"name": "invalid.illegal",
-			"match": "(abstract|await!|final|gen!?|goto!|is|isa|of!?|to|until!?|while!?)\\s"
+			"match": "(abstract|await!|export|final|gen!?|goto!|is|isa|of!?|to|until!?|while!?)\\s"
 		},
 		{
 			"name": "keyword",
-			"match": "(_|->|<~|<~~|and|as|break|built|case|catch|class|cond|debug|debugger|do|else|except|false|@for~?|for|get|if|ignore|in|name|new|not|null|or|out|pass|static|switch|this|true|try|undefined|unless|use|use-debug|with)\\s"
+			"match": "(_|->|<~|<~~|and|as|break|built|case|catch|class|cond|debug|debugger|do|else|except|false|@for~?|for|get|if|ignore|import|import-debug|in|name|new|not|null|or|out|pass|static|switch|this|true|try|undefined|unless|with)\\s"
 		},
 		{
 			"name": "keyword",
@@ -218,7 +218,7 @@
 		},
 		{
 			"name": "keyword",
-			"match": "\\~"
+			"match": "~"
 		},
 		{
 			"name": "punctuation.section.embedded",
@@ -251,10 +251,6 @@
 			"match": "\\."
 		},
 		{
-			"name": "keyword.other.unit",
-			"match": "[^\\.\\s]+!"
-		},
-		{
 			"name": "variable",
 			"begin": "(\\~?!?\\|)",
 			"end": "\\n",
@@ -270,7 +266,7 @@
 				},
 				{
 					"name": "comment",
-					"match": "#.*"
+					"match": "\\|\\s.*"
 				}
 			],
 			"beginCaptures": {
@@ -304,8 +300,12 @@
 			}
 		},
 		{
+			"name": "invalid.illegal",
+			"match": "[`#%^&\\\\';,]"
+		},
+		{
 			"name": "constant.language",
-			"match": "\\S+(_)",
+			"match": "[^\\s\\.\\:\\(\\)\\[\\]\"]+(_)",
 			"captures": {
 				"1": {
 					"name": "keyword"
@@ -313,12 +313,8 @@
 			}
 		},
 		{
-			"name": "invalid.illegal",
-			"match": "[`%^&\\\\';,]"
-		},
-		{
 			"name": "none",
-			"match": "[^\\s\\.\\:\\(\\)\\[\\]]+"
+			"match": "[^\\s\\.\\:\\(\\)\\[\\]\"]+"
 		}
 	]
 }

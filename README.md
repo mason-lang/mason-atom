@@ -11,3 +11,11 @@ Files with the `.ms` extension should now be highlighted.
 
 (You can't just do `apm install mason-lang/mason-atom`.
 See the [issue](https://github.com/atom/apm/issues/355).)
+
+
+Build
+===
+
+	npm install
+	cd grammars
+	mason run generate.ms
