@@ -176,12 +176,25 @@
 			}
 		},
 		{
+			"name": "string",
+			"match": "'[^\\s\\.\\:\\(\\)\\[\\]\"&]+"
+		},
+		{
 			"name": "comment",
-			"match": "\\|\\s.*"
+			"match": "\\|(\\||\\s).*"
 		},
 		{
 			"name": "entity.name.section",
 			"match": "^\\s*(region)[^\\n]*\\n",
+			"captures": {
+				"1": {
+					"name": "comment"
+				}
+			}
+		},
+		{
+			"name": "entity.name.section",
+			"match": "^\\s*(todo)[^\\n]*\\n",
 			"captures": {
 				"1": {
 					"name": "comment"
@@ -194,27 +207,19 @@
 		},
 		{
 			"name": "invalid.illegal",
-			"match": "(arguments|const|delete|eval|instanceof|let|return|typeof|var|void|while)\\s"
+			"match": "(arguments|const|delete|eval|in|instanceof|let|return|typeof|var|void|while)\\s"
 		},
 		{
 			"name": "invalid.illegal",
-			"match": "(abstract|await!|export|final|gen!?|goto!|is|isa|of!?|to|until!?|while!?)\\s"
+			"match": "(abstract|await!|export|final|gen!?|goto!|is|meta|out|to|until!?|while!?)\\s"
 		},
 		{
 			"name": "keyword",
-			"match": "(_|->|<~|<~~|and|as|break|built|case|catch|class|cond|debug|debugger|do|else|except|false|@for~?|for|get|if|ignore|import|import-debug|in|name|new|not|null|or|out|pass|static|switch|this|true|try|undefined|unless|with)\\s"
+			"match": "(_|->|<~|<~~|and|as|assert|break|built|case|catch|class|cond|construct|debug|debugger|del|do|else|except|false|finally|@for~?|for|forbid|get|if|ignore|import!?|import-debug|kind|name|new|not|null|of|or|pass|set|static|switch|this|throw|true|try|undefined|unless|with)\\s"
 		},
 		{
 			"name": "keyword",
 			"match": "super(\\(\\)|\\s|\\.)"
-		},
-		{
-			"name": "keyword.other.special-method",
-			"match": "super!\\s"
-		},
-		{
-			"name": "keyword.other.special-method",
-			"match": "(assert!|break!|case!|catch!|construct!|do!|except!|finally!|forbid!|for!|if!|set!|switch!|throw!|try!|unless!|use!)\\s"
 		},
 		{
 			"name": "keyword",
@@ -252,7 +257,7 @@
 		},
 		{
 			"name": "variable",
-			"begin": "(\\~?!?\\|)",
+			"begin": "((\\~|\\$)?!?\\|)",
 			"end": "\\n",
 			"patterns": [
 				{
@@ -274,6 +279,10 @@
 					"name": "comment"
 				}
 			}
+		},
+		{
+			"name": "support.type",
+			"match": "&"
 		},
 		{
 			"name": "entity.other.attribute-name",
@@ -301,11 +310,11 @@
 		},
 		{
 			"name": "invalid.illegal",
-			"match": "[`#%^&\\\\';,]"
+			"match": "[`#%^\\\\';,]"
 		},
 		{
 			"name": "constant.language",
-			"match": "[^\\s\\.\\:\\(\\)\\[\\]\"]+(_)",
+			"match": "[^\\s\\.\\:\\(\\)\\[\\]\"&]+(_)",
 			"captures": {
 				"1": {
 					"name": "keyword"
@@ -314,7 +323,7 @@
 		},
 		{
 			"name": "none",
-			"match": "[^\\s\\.\\:\\(\\)\\[\\]\"]+"
+			"match": "[^\\s\\.\\:\\(\\)\\[\\]\"&]+"
 		}
 	]
 }
