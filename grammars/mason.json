@@ -177,7 +177,7 @@
 		},
 		{
 			"name": "string",
-			"match": "'[^\\s\\.\\:\\(\\)\\[\\]\"&]+"
+			"match": "'[^\\s.:()\\[\\]\"&]+"
 		},
 		{
 			"name": "comment",
@@ -203,23 +203,11 @@
 		},
 		{
 			"name": "invalid.illegal",
-			"match": "(await|enum|implements|interface|package|private|protected|public)\\s"
-		},
-		{
-			"name": "invalid.illegal",
-			"match": "(arguments|const|delete|eval|in|instanceof|let|return|typeof|var|void|while)\\s"
-		},
-		{
-			"name": "invalid.illegal",
-			"match": "(abstract|await!|export|final|gen!?|goto!|is|meta|out|to|until!?|while!?)\\s"
+			"match": "(!|<|>|actor|arguments|async|await|const|data|del?|delete|do-until|do-while|enum|eval|final|implements|in|instanceof|interface|is|let|meta|out|override|package|private|protected|public|return|send|to|type|typeof|until|var|void|while)(?=[\\s.:()\\[\\]\"&])"
 		},
 		{
 			"name": "keyword",
-			"match": "(_|->|<~|<~~|and|as|assert|break|built|case|catch|class|cond|construct|debug|debugger|del|do|else|except|false|finally|@for~?|for|forbid|get|if|ignore|import!?|import-debug|kind|name|new|not|null|of|or|pass|set|static|switch|this|throw|true|try|undefined|unless|with)\\s"
-		},
-		{
-			"name": "keyword",
-			"match": "super(\\(\\)|\\s|\\.)"
+			"match": "(&|'|->|<-|@for|_|abstract|and|as|assert|break|built|case|catch|class|cond|construct|debugger|del|do|else|except|false|finally|for|forbid|get|if|ignore|import|import!|import~|kind|method|my|name|new|not|null|of|or|pass|region|set|static|super|switch|throw|todo|true|try|undefined|unless|with|~|<-\\*)(?=[\\s.:()\\[\\]\"&])"
 		},
 		{
 			"name": "keyword",
@@ -257,7 +245,7 @@
 		},
 		{
 			"name": "variable",
-			"begin": "((\\~|\\$)?!?\\|)",
+			"begin": "((\\*|\\$)?!?\\|)",
 			"end": "\\n",
 			"patterns": [
 				{
@@ -314,7 +302,7 @@
 		},
 		{
 			"name": "constant.language",
-			"match": "[^\\s\\.\\:\\(\\)\\[\\]\"&]+(_)",
+			"match": "[^\\s.:()\\[\\]\"&]+(_)",
 			"captures": {
 				"1": {
 					"name": "keyword"
@@ -323,7 +311,7 @@
 		},
 		{
 			"name": "none",
-			"match": "[^\\s\\.\\:\\(\\)\\[\\]\"&]+"
+			"match": "[^\\s.:()\\[\\]\"&]+"
 		}
 	]
 }

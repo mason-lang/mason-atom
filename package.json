@@ -8,6 +8,7 @@
 	"license": "WTFPL",
 	"devDependencies": {
 		"amdefine": "1.0.0",
+		"mason-compile": "mason-lang/mason-compile",
 		"msl": "mason-lang/msl"
 	}
 }

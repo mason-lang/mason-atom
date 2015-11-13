@@ -1,6 +1,6 @@
 import
-	global JSON
 	fs writeFileSync
+	mason-compile.dist.info keywords reservedKeywords
 	msl.dist.Object map-object-values
 
 replace-many = |str regexp-source replacer
@@ -29,7 +29,7 @@ nm = |-name match
 nmc = |-name match captures
 	name. -name
 	match.
-	"captures". convert-captures captures
+	'captures. convert-captures captures
 section = |-name begin end opts
 	name. -name
 	begin.
@@ -41,9 +41,9 @@ section = |-name begin end opts
 	if opts.endCaptures
 		endCaptures. convert-captures opts.endCaptures
 
-rgx-id =
-	| Regex for an identifier.
-	r"[^\s\.\:\(\)\[\]\"&]+"
+non-id-characters = r"\s.:()\[\]\"&"
+rgx-break = "[{non-id-characters}]"
+rgx-id = "[^{non-id-characters}]+"
 
 patterns =
 	quote-patterns =
@@ -68,19 +68,11 @@ patterns =
 	|| todo
 	. nmc "entity.name.section" r"^\s*(todo)[^\n]*\n" 'comment
 
-	|| JavaScript reserved word
-	. nm "invalid.illegal" r"(await|enum|implements|interface|package|private|protected|public)\s"
-	|| JavaScript keyword
-	. nm "invalid.illegal" r"(arguments|const|delete|eval|in|instanceof|let|return|typeof|var|void|while)\s"
-	|| mason reserved word
-	. nm "invalid.illegal" r"(abstract|await!|export|final|gen!?|goto!|is|meta|out|to|until!?|while!?)\s"
+	. nm "invalid.illegal" r"({=> String reservedKeywords "|"})(?={rgx-break})"
 	|| mason keyword
-	keywords = "
-		_ -> <~ <~~ and as assert break built case catch class cond construct debug debugger del do
-		else except false finally @for~? for forbid get if ignore import!? import-debug kind name
-		new not null of or pass set static switch this throw true try undefined unless with
-	. nm 'keyword r"({replace-many keywords "\\s" "|"})\s"
-	. nm 'keyword r"super(\(\)|\s|\.)"
+	remaining-keywords = (@keep keywords &(not (new RegExp "[|=.:*]").test_))
+	|| <-* must be added in with escaping
+	. nm 'keyword r"({=> String remaining-keywords "|"}|<-\*)(?={rgx-break})"
 	. nm 'keyword "~"
 
 	|| bracket
@@ -97,7 +89,7 @@ patterns =
 	. nm 'keyword r"\."
 
 	|| Function
-	. section 'variable r"((\~|\$)?!?\|)" r"\n"
+	. section 'variable r"((\*|\$)?!?\|)" r"\n"
 		beginCaptures. 'comment
 		patterns.
 			. nmc "support.type" r"(:)\S+" 'comment
