@@ -3,37 +3,29 @@ import
 	mason-compile.dist.info keywords reservedKeywords
 	msl.dist.Object map-object-values
 
-replace-many = |str regexp-source replacer
-	str.replace (new RegExp regexp-source 'g) replacer
-
-r = |strings ...values
-	| Gets a raw string.
-	s = String.raw strings ...values
-	|| Template strings have to escape ` characters, but don't need that in the regexp.
-	s2 = replace-many s "\\\\`" "`"
-	|| Same for " characters
-	replace-many s2 "\\\\\\\"" "\""
-
 convert-captures = |case
-	:String
+	:Str
 		todo SYNTAX (name. _)
 		"1".
 			name. _
 	else
+		todo SYNTAX &(name. _)
 		map-object-values _ |capture-class
 			name. capture-class
 
-nm = |-name match
+nm = |-name:Str match:RegExp
 	name. -name
-	match.
-nmc = |-name match captures
+	'match. match.source
+
+nmc = |-name:Str match:RegExp captures
 	name. -name
-	match.
+	'match. match.source
 	'captures. convert-captures captures
-section = |-name begin end opts
+
+section = |-name:Str begin:RegExp end:RegExp opts:Object
 	name. -name
-	begin.
-	end.
+	'begin. begin.source
+	'end. end.source
 	if opts.patterns
 		patterns. opts.patterns
 	if opts.beginCaptures
@@ -41,78 +33,88 @@ section = |-name begin end opts
 	if opts.endCaptures
 		endCaptures. convert-captures opts.endCaptures
 
-non-id-characters = r"\s.:()\[\]\"&"
-rgx-break = "[{non-id-characters}]"
-rgx-id = "[^{non-id-characters}]+"
+todo get from info (see bottom of chars.js)
+non-id-characters = "`&()\\[\\]{}|:\".\\s\#%^\\\\;,'"
+|| non-id-characters = "\\s.:()\\[\\]\"&"
+rgx-break-ahead = `(?=[#non-id-characters])`
+rgx-id = `[^#non-id-characters]+`
 
 patterns =
 	quote-patterns =
-		. nm "constant.character.escape" r"\\."
-		. nm "variable.interpolation" r"\{[^\}]*\}"
+		. nm "constant.character.escape" `\\.`
+		. nmc 'comment `\#(#rgx-id)` "support.type"
+		. nmc 'comment `\#\(([^\)]*)\)` "support.type"
 
 	for i of 0..9
-		begin = "^\\t\{{i}}[^\\t\"]*\"$"
-		end = "^\\t\{,{i}}(?=[^\\t])"
+		begin = `^\t{#i}[^\t"]*"$`
+		end = `^\t{,#i}(?=[^\t])`
 		. section 'string begin end (patterns. quote-patterns)
 
+	|| regexp
+	. section 'string `\`` `\`(g?i?m?y?)|(.(?=\n))`
+		endCaptures.
+			"2". "invalid.illegal"
+		patterns. quote-patterns
+
 	|| one-line quote
-	. section 'string "\"" r"\"|(.(?=\n))" (endCaptures. "invalid.illegal" patterns. quote-patterns)
+	. section 'string `"` `"|(.(?=\n))` (endCaptures. "invalid.illegal" patterns. quote-patterns)
 
 	|| simple quote
-	. nm 'string "\'{rgx-id}"
+	. nm 'string `'#rgx-id`
 
-	. nm 'comment r"\|(\||\s).*"
+	. nm 'comment `\|(\||\s).*`
 
 	|| region
-	. nmc "entity.name.section" r"^\s*(region)[^\n]*\n" 'comment
+	. nm 'comment `^\s*(region)[^\n]*\n`
 	|| todo
-	. nmc "entity.name.section" r"^\s*(todo)[^\n]*\n" 'comment
-
-	. nm "invalid.illegal" r"({=> String reservedKeywords "|"})(?={rgx-break})"
-	|| mason keyword
-	remaining-keywords = (@keep keywords &(not (new RegExp "[|=.:*]").test_))
-	|| <-* must be added in with escaping
-	. nm 'keyword r"({=> String remaining-keywords "|"}|<-\*)(?={rgx-break})"
-	. nm 'keyword "~"
+	. nmc 'comment `^\s*(todo)[^\n]*\n` 'keyword
 
 	|| bracket
-	. nm "punctuation.section.embedded" r"[\(\[\]\)]"
+	. nm "punctuation.section.embedded" `[\(\[\]\)]`
 
 	|| NumberLiteral
-	. nmc "constant.numeric" r"-?0(b|o|x)[0-9a-f]+" "constant.character.escape"
-	. nm "constant.numeric" r"-?\d+(\.\d+)?"
+	. nmc "constant.numeric" `-?0(b|o|x)[0-9a-f]+` "constant.character.escape"
+	. nm "constant.numeric" `-?\d+(\.\d+)?`
 
 	|| type test (type *not* in fun or assign)
-	. nmc "support.type" r"(:)\S+" 'comment
+	. nmc "support.type" `(:)\S+` 'comment
 
 	|| MemberAccess
-	. nm 'keyword r"\."
+	. nm 'keyword `\.`
 
 	|| Function
-	. section 'variable r"((\*|\$)?!?\|)" r"\n"
+	. section 'variable `((\*|\$)?\!?\|)` `\n`
 		beginCaptures. 'comment
 		patterns.
-			. nmc "support.type" r"(:)\S+" 'comment
-			. nm 'comment r"\|\s.*"
-	. nm "support.type" "&"
+			. nmc "support.type" `(:)\S+` 'comment
+			. nm 'comment `\|\s.*`
+	. nm "support.type" `&`
 
 	|| AssignSingle
-	. nmc "entity.other.attribute-name" r"([^\s\.:]+)((:)([^\s\.]+))?((\.)|\s((=)|(:=|::=)|(<~~?)))\s"
+	. nmc "entity.other.attribute-name" `([^\s\.:]+)((:)([^\s\.]+))?((\.)|\s((=)|(:=)))\s`
 		"3". 'comment || : before type
 		"4". "support.type" || type
 		"6". 'comment || '. '
 		"8". 'comment || =
-		"9". "entity.name.tag" || := or ::=
-		"10". 'keyword || <~ or <~~
+		"9". "entity.name.tag" || :=
 
 	|| reserved character
-	. nm "invalid.illegal" r"[`#%^\\';,]"
+	. nm "invalid.illegal" `[\#%^\\';,]`
 
 	|| focus call
-	. nmc "constant.language" r"{rgx-id}(_)" 'keyword
+	. nmc "constant.language" `#rgx-id(_)` 'keyword
+
+	. nm "invalid.illegal" `(#(=> String reservedKeywords "|"))#rgx-break-ahead`
+	|| mason keyword
+	remaining-keywords = (@keep keywords &(not `[$|=.:*]`.test_))
+	|| `this` isn't implemented as a keyword but should be highlighted.
+	|| Others must be added in with escaping.
+	extra-keywords = `this|\$|\$for|yield\*`
+	. nm 'keyword `(#(=> String remaining-keywords "|")|#extra-keywords)#rgx-break-ahead`
+	. nm 'keyword `~`
 
 	|| LocalAccess (or anything not captured by above)
-	. nm 'none r"{rgx-id}"
+	. nm 'none rgx-id
 
 writeFileSync "mason.json"
 	content =

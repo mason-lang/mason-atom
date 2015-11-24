@@ -15,8 +15,22 @@
 					"match": "\\\\."
 				},
 				{
-					"name": "variable.interpolation",
-					"match": "\\{[^\\}]*\\}"
+					"name": "comment",
+					"match": "#([^`&()\\[\\]{}|:\".\\s#%^\\\\;,']+)",
+					"captures": {
+						"1": {
+							"name": "support.type"
+						}
+					}
+				},
+				{
+					"name": "comment",
+					"match": "#\\(([^\\)]*)\\)",
+					"captures": {
+						"1": {
+							"name": "support.type"
+						}
+					}
 				}
 			]
 		},
@@ -30,8 +44,22 @@
 					"match": "\\\\."
 				},
 				{
-					"name": "variable.interpolation",
-					"match": "\\{[^\\}]*\\}"
+					"name": "comment",
+					"match": "#([^`&()\\[\\]{}|:\".\\s#%^\\\\;,']+)",
+					"captures": {
+						"1": {
+							"name": "support.type"
+						}
+					}
+				},
+				{
+					"name": "comment",
+					"match": "#\\(([^\\)]*)\\)",
+					"captures": {
+						"1": {
+							"name": "support.type"
+						}
+					}
 				}
 			]
 		},
@@ -45,8 +73,22 @@
 					"match": "\\\\."
 				},
 				{
-					"name": "variable.interpolation",
-					"match": "\\{[^\\}]*\\}"
+					"name": "comment",
+					"match": "#([^`&()\\[\\]{}|:\".\\s#%^\\\\;,']+)",
+					"captures": {
+						"1": {
+							"name": "support.type"
+						}
+					}
+				},
+				{
+					"name": "comment",
+					"match": "#\\(([^\\)]*)\\)",
+					"captures": {
+						"1": {
+							"name": "support.type"
+						}
+					}
 				}
 			]
 		},
@@ -60,8 +102,22 @@
 					"match": "\\\\."
 				},
 				{
-					"name": "variable.interpolation",
-					"match": "\\{[^\\}]*\\}"
+					"name": "comment",
+					"match": "#([^`&()\\[\\]{}|:\".\\s#%^\\\\;,']+)",
+					"captures": {
+						"1": {
+							"name": "support.type"
+						}
+					}
+				},
+				{
+					"name": "comment",
+					"match": "#\\(([^\\)]*)\\)",
+					"captures": {
+						"1": {
+							"name": "support.type"
+						}
+					}
 				}
 			]
 		},
@@ -75,8 +131,22 @@
 					"match": "\\\\."
 				},
 				{
-					"name": "variable.interpolation",
-					"match": "\\{[^\\}]*\\}"
+					"name": "comment",
+					"match": "#([^`&()\\[\\]{}|:\".\\s#%^\\\\;,']+)",
+					"captures": {
+						"1": {
+							"name": "support.type"
+						}
+					}
+				},
+				{
+					"name": "comment",
+					"match": "#\\(([^\\)]*)\\)",
+					"captures": {
+						"1": {
+							"name": "support.type"
+						}
+					}
 				}
 			]
 		},
@@ -90,8 +160,22 @@
 					"match": "\\\\."
 				},
 				{
-					"name": "variable.interpolation",
-					"match": "\\{[^\\}]*\\}"
+					"name": "comment",
+					"match": "#([^`&()\\[\\]{}|:\".\\s#%^\\\\;,']+)",
+					"captures": {
+						"1": {
+							"name": "support.type"
+						}
+					}
+				},
+				{
+					"name": "comment",
+					"match": "#\\(([^\\)]*)\\)",
+					"captures": {
+						"1": {
+							"name": "support.type"
+						}
+					}
 				}
 			]
 		},
@@ -105,8 +189,22 @@
 					"match": "\\\\."
 				},
 				{
-					"name": "variable.interpolation",
-					"match": "\\{[^\\}]*\\}"
+					"name": "comment",
+					"match": "#([^`&()\\[\\]{}|:\".\\s#%^\\\\;,']+)",
+					"captures": {
+						"1": {
+							"name": "support.type"
+						}
+					}
+				},
+				{
+					"name": "comment",
+					"match": "#\\(([^\\)]*)\\)",
+					"captures": {
+						"1": {
+							"name": "support.type"
+						}
+					}
 				}
 			]
 		},
@@ -120,8 +218,22 @@
 					"match": "\\\\."
 				},
 				{
-					"name": "variable.interpolation",
-					"match": "\\{[^\\}]*\\}"
+					"name": "comment",
+					"match": "#([^`&()\\[\\]{}|:\".\\s#%^\\\\;,']+)",
+					"captures": {
+						"1": {
+							"name": "support.type"
+						}
+					}
+				},
+				{
+					"name": "comment",
+					"match": "#\\(([^\\)]*)\\)",
+					"captures": {
+						"1": {
+							"name": "support.type"
+						}
+					}
 				}
 			]
 		},
@@ -135,8 +247,22 @@
 					"match": "\\\\."
 				},
 				{
-					"name": "variable.interpolation",
-					"match": "\\{[^\\}]*\\}"
+					"name": "comment",
+					"match": "#([^`&()\\[\\]{}|:\".\\s#%^\\\\;,']+)",
+					"captures": {
+						"1": {
+							"name": "support.type"
+						}
+					}
+				},
+				{
+					"name": "comment",
+					"match": "#\\(([^\\)]*)\\)",
+					"captures": {
+						"1": {
+							"name": "support.type"
+						}
+					}
 				}
 			]
 		},
@@ -150,10 +276,58 @@
 					"match": "\\\\."
 				},
 				{
-					"name": "variable.interpolation",
-					"match": "\\{[^\\}]*\\}"
+					"name": "comment",
+					"match": "#([^`&()\\[\\]{}|:\".\\s#%^\\\\;,']+)",
+					"captures": {
+						"1": {
+							"name": "support.type"
+						}
+					}
+				},
+				{
+					"name": "comment",
+					"match": "#\\(([^\\)]*)\\)",
+					"captures": {
+						"1": {
+							"name": "support.type"
+						}
+					}
 				}
 			]
+		},
+		{
+			"name": "string",
+			"begin": "`",
+			"end": "`(g?i?m?y?)|(.(?=\\n))",
+			"patterns": [
+				{
+					"name": "constant.character.escape",
+					"match": "\\\\."
+				},
+				{
+					"name": "comment",
+					"match": "#([^`&()\\[\\]{}|:\".\\s#%^\\\\;,']+)",
+					"captures": {
+						"1": {
+							"name": "support.type"
+						}
+					}
+				},
+				{
+					"name": "comment",
+					"match": "#\\(([^\\)]*)\\)",
+					"captures": {
+						"1": {
+							"name": "support.type"
+						}
+					}
+				}
+			],
+			"endCaptures": {
+				"2": {
+					"name": "invalid.illegal"
+				}
+			}
 		},
 		{
 			"name": "string",
@@ -165,8 +339,22 @@
 					"match": "\\\\."
 				},
 				{
-					"name": "variable.interpolation",
-					"match": "\\{[^\\}]*\\}"
+					"name": "comment",
+					"match": "#([^`&()\\[\\]{}|:\".\\s#%^\\\\;,']+)",
+					"captures": {
+						"1": {
+							"name": "support.type"
+						}
+					}
+				},
+				{
+					"name": "comment",
+					"match": "#\\(([^\\)]*)\\)",
+					"captures": {
+						"1": {
+							"name": "support.type"
+						}
+					}
 				}
 			],
 			"endCaptures": {
@@ -177,41 +365,24 @@
 		},
 		{
 			"name": "string",
-			"match": "'[^\\s.:()\\[\\]\"&]+"
+			"match": "'[^`&()\\[\\]{}|:\".\\s#%^\\\\;,']+"
 		},
 		{
 			"name": "comment",
 			"match": "\\|(\\||\\s).*"
 		},
 		{
-			"name": "entity.name.section",
-			"match": "^\\s*(region)[^\\n]*\\n",
-			"captures": {
-				"1": {
-					"name": "comment"
-				}
-			}
+			"name": "comment",
+			"match": "^\\s*(region)[^\\n]*\\n"
 		},
 		{
-			"name": "entity.name.section",
+			"name": "comment",
 			"match": "^\\s*(todo)[^\\n]*\\n",
 			"captures": {
 				"1": {
-					"name": "comment"
+					"name": "keyword"
 				}
 			}
-		},
-		{
-			"name": "invalid.illegal",
-			"match": "(!|<|>|actor|arguments|async|await|const|data|del?|delete|do-until|do-while|enum|eval|final|implements|in|instanceof|interface|is|let|meta|out|override|package|private|protected|public|return|send|to|type|typeof|until|var|void|while)(?=[\\s.:()\\[\\]\"&])"
-		},
-		{
-			"name": "keyword",
-			"match": "(&|'|->|<-|@for|_|abstract|and|as|assert|break|built|case|catch|class|cond|construct|debugger|del|do|else|except|false|finally|for|forbid|get|if|ignore|import|import!|import~|kind|method|my|name|new|not|null|of|or|pass|region|set|static|super|switch|throw|todo|true|try|undefined|unless|with|~|<-\\*)(?=[\\s.:()\\[\\]\"&])"
-		},
-		{
-			"name": "keyword",
-			"match": "~"
 		},
 		{
 			"name": "punctuation.section.embedded",
@@ -245,7 +416,7 @@
 		},
 		{
 			"name": "variable",
-			"begin": "((\\*|\\$)?!?\\|)",
+			"begin": "((\\*|\\$)?\\!?\\|)",
 			"end": "\\n",
 			"patterns": [
 				{
@@ -274,7 +445,7 @@
 		},
 		{
 			"name": "entity.other.attribute-name",
-			"match": "([^\\s\\.:]+)((:)([^\\s\\.]+))?((\\.)|\\s((=)|(:=|::=)|(<~~?)))\\s",
+			"match": "([^\\s\\.:]+)((:)([^\\s\\.]+))?((\\.)|\\s((=)|(:=)))\\s",
 			"captures": {
 				"3": {
 					"name": "comment"
@@ -290,19 +461,16 @@
 				},
 				"9": {
 					"name": "entity.name.tag"
-				},
-				"10": {
-					"name": "keyword"
 				}
 			}
 		},
 		{
 			"name": "invalid.illegal",
-			"match": "[`#%^\\\\';,]"
+			"match": "[#%^\\\\';,]"
 		},
 		{
 			"name": "constant.language",
-			"match": "[^\\s.:()\\[\\]\"&]+(_)",
+			"match": "[^`&()\\[\\]{}|:\".\\s#%^\\\\;,']+(_)",
 			"captures": {
 				"1": {
 					"name": "keyword"
@@ -310,8 +478,20 @@
 			}
 		},
 		{
+			"name": "invalid.illegal",
+			"match": "(!|<|<-|>|actor|arguments|data|del?|delete|do-until|do-while|enum|eval|final|implements|in|instanceof|interface|is|meta|out|override|package|private|protected|public|return|send|to|type|typeof|until|void|while)(?=[`&()\\[\\]{}|:\".\\s#%^\\\\;,'])"
+		},
+		{
+			"name": "keyword",
+			"match": "(&|'|->|@for|_|abstract|and|as|assert|break|built|case|catch|class|cond|construct|debugger|del|do|else|except|extends|false|finally|for|forbid|get|if|ignore|import|import!|import~|kind|method|my|name|new|not|null|of|or|pass|pipe|region|set|static|super|switch|throw|todo|true|try|undefined|unless|with|yield|~|this|\\$|\\$for|yield\\*)(?=[`&()\\[\\]{}|:\".\\s#%^\\\\;,'])"
+		},
+		{
+			"name": "keyword",
+			"match": "~"
+		},
+		{
 			"name": "none",
-			"match": "[^\\s.:()\\[\\]\"&]+"
+			"match": "[^`&()\\[\\]{}|:\".\\s#%^\\\\;,']+"
 		}
 	]
 }

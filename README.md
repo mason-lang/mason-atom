@@ -1,4 +1,4 @@
-[mason](http://mason-lang.org) syntax for [atom](https://atom.io).
+[Mason](http://mason-lang.org) syntax for [atom](https://atom.io).
 
 Install
 ===
