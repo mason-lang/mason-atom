@@ -1,7 +1,7 @@
 import
 	fs writeFileSync
-	mason-compile.dist.info keywords reservedKeywords
-	msl.dist.Object map-object-values
+	mason-compile.lib.info keywords reservedKeywords
+	msl.lib.Object map-object-values
 
 convert-captures = |case
 	:Str
@@ -106,7 +106,7 @@ patterns =
 
 	. nm "invalid.illegal" `(#(=> String reservedKeywords "|"))#rgx-break-ahead`
 	|| mason keyword
-	remaining-keywords = (@keep keywords &(not `[$|=.:*]`.test_))
+	remaining-keywords = @keep keywords &(not `[$|=.:*]`.test_)
 	|| `this` isn't implemented as a keyword but should be highlighted.
 	|| Others must be added in with escaping.
 	extra-keywords = `this|\$|\$for|yield\*`

@@ -4,10 +4,14 @@
 	"version": "0.0.0",
 	"private": true,
 	"main": "",
+	"license": "Unlicense",
 	"repository": "https://github.com/mason-lang/mason-atom",
-	"license": "WTFPL",
+	"scripts": {
+		"build": "cd grammars; mason run generate.ms"
+	},
 	"devDependencies": {
 		"amdefine": "1.0.0",
+		"mason-lang/mason-cli": "mason-lang/mason-cli",
 		"mason-compile": "mason-lang/mason-compile",
 		"msl": "mason-lang/msl"
 	}

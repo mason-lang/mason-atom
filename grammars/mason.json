@@ -479,11 +479,11 @@
 		},
 		{
 			"name": "invalid.illegal",
-			"match": "(!|<|<-|>|actor|arguments|data|del?|delete|do-until|do-while|enum|eval|final|implements|in|instanceof|interface|is|meta|out|override|package|private|protected|public|return|send|to|type|typeof|until|void|while)(?=[`&()\\[\\]{}|:\".\\s#%^\\\\;,'])"
+			"match": "(!|<|<-|>|actor|any|arguments|boolean|continue|data|declare|del?|delete|do-until|do-while|enum|eval|final|flags|float|float128|float32|float64|from|implements|implicit|in|instanceof|int|int16|int32|int64|int8|interface|is|macro|meta|mixed|move|mut|native|number|object|on|operator|out|package|private|protected|ptr|public|pure|readonly|return|sealed|send|shared|sizeof|string|struct|symbol|synchronized|throws|to|transient|type|typeof|uint|uint16|uint32|uint64|uint8|until|use|void|volatile|while)(?=[`&()\\[\\]{}|:\".\\s#%^\\\\;,'])"
 		},
 		{
 			"name": "keyword",
-			"match": "(&|'|->|@for|_|abstract|and|as|assert|break|built|case|catch|class|cond|construct|debugger|del|do|else|except|extends|false|finally|for|forbid|get|if|ignore|import|import!|import~|kind|method|my|name|new|not|null|of|or|pass|pipe|region|set|static|super|switch|throw|todo|true|try|undefined|unless|with|yield|~|this|\\$|\\$for|yield\\*)(?=[`&()\\[\\]{}|:\".\\s#%^\\\\;,'])"
+			"match": "(&|'|->|@for|_|abstract|and|as|assert|break|built|case|catch|class|cond|construct|debugger|del|do|else|except|extends|false|finally|for|forbid|get|if|ignore|import|import!|import~|method|my|name|new|not|null|of|or|override|pass|pipe|region|set|static|super|switch|throw|todo|trait|trait!|true|try|undefined|unless|virtual|with|yield|~|this|\\$|\\$for|yield\\*)(?=[`&()\\[\\]{}|:\".\\s#%^\\\\;,'])"
 		},
 		{
 			"name": "keyword",

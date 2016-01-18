@@ -16,7 +16,4 @@ See the [issue](https://github.com/atom/apm/issues/355).)
 Build
 ===
 
-	npm install
-	npm install -g mason-lang/mason-cli
-	cd grammars
-	mason run generate.ms
+	npm run build
