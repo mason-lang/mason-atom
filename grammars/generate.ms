@@ -34,7 +34,7 @@ section = |-name:Str begin:RegExp end:RegExp opts:Object
 		endCaptures. convert-captures opts.endCaptures
 
 todo get from info (see bottom of chars.js)
-non-id-characters = "`&()\\[\\]{}|:\".\\s\#%^\\\\;,'"
+non-id-characters = "`&()\\[\\]{}|:\".\\s\#^\\\\;,'"
 || non-id-characters = "\\s.:()\\[\\]\"&"
 rgx-break-ahead = `(?=[#non-id-characters])`
 rgx-id = `[^#non-id-characters]+`
@@ -99,18 +99,23 @@ patterns =
 		"9". "entity.name.tag" || :=
 
 	|| reserved character
-	. nm "invalid.illegal" `[\#%^\\';,]`
+	. nm "invalid.illegal" `[\#^\\';,]`
 
 	|| focus call
 	. nmc "constant.language" `#rgx-id(_)` 'keyword
 
 	. nm "invalid.illegal" `(#(=> String reservedKeywords "|"))#rgx-break-ahead`
-	|| mason keyword
-	remaining-keywords = @keep keywords &(not `[$|=.:*]`.test_)
+	escaped-keywords = @for k of keywords
+		unless `[|=.:]`.test k
+			. pipe k
+				_.replace `\$`g "\\$"
+				_.replace `\+`g "\\+"
+				_.replace `\*`g "\\*"
+				_.replace `\?`g "\\?"
+
 	|| `this` isn't implemented as a keyword but should be highlighted.
-	|| Others must be added in with escaping.
-	extra-keywords = `this|\$|\$for|yield\*`
-	. nm 'keyword `(#(=> String remaining-keywords "|")|#extra-keywords)#rgx-break-ahead`
+	extra-keywords = `this|==?\?`
+	. nm 'keyword `(#(=> String escaped-keywords "|")|#extra-keywords)#rgx-break-ahead`
 	. nm 'keyword `~`
 
 	|| LocalAccess (or anything not captured by above)

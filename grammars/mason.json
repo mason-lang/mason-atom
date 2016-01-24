@@ -16,7 +16,7 @@
 				},
 				{
 					"name": "comment",
-					"match": "#([^`&()\\[\\]{}|:\".\\s#%^\\\\;,']+)",
+					"match": "#([^`&()\\[\\]{}|:\".\\s#^\\\\;,']+)",
 					"captures": {
 						"1": {
 							"name": "support.type"
@@ -45,7 +45,7 @@
 				},
 				{
 					"name": "comment",
-					"match": "#([^`&()\\[\\]{}|:\".\\s#%^\\\\;,']+)",
+					"match": "#([^`&()\\[\\]{}|:\".\\s#^\\\\;,']+)",
 					"captures": {
 						"1": {
 							"name": "support.type"
@@ -74,7 +74,7 @@
 				},
 				{
 					"name": "comment",
-					"match": "#([^`&()\\[\\]{}|:\".\\s#%^\\\\;,']+)",
+					"match": "#([^`&()\\[\\]{}|:\".\\s#^\\\\;,']+)",
 					"captures": {
 						"1": {
 							"name": "support.type"
@@ -103,7 +103,7 @@
 				},
 				{
 					"name": "comment",
-					"match": "#([^`&()\\[\\]{}|:\".\\s#%^\\\\;,']+)",
+					"match": "#([^`&()\\[\\]{}|:\".\\s#^\\\\;,']+)",
 					"captures": {
 						"1": {
 							"name": "support.type"
@@ -132,7 +132,7 @@
 				},
 				{
 					"name": "comment",
-					"match": "#([^`&()\\[\\]{}|:\".\\s#%^\\\\;,']+)",
+					"match": "#([^`&()\\[\\]{}|:\".\\s#^\\\\;,']+)",
 					"captures": {
 						"1": {
 							"name": "support.type"
@@ -161,7 +161,7 @@
 				},
 				{
 					"name": "comment",
-					"match": "#([^`&()\\[\\]{}|:\".\\s#%^\\\\;,']+)",
+					"match": "#([^`&()\\[\\]{}|:\".\\s#^\\\\;,']+)",
 					"captures": {
 						"1": {
 							"name": "support.type"
@@ -190,7 +190,7 @@
 				},
 				{
 					"name": "comment",
-					"match": "#([^`&()\\[\\]{}|:\".\\s#%^\\\\;,']+)",
+					"match": "#([^`&()\\[\\]{}|:\".\\s#^\\\\;,']+)",
 					"captures": {
 						"1": {
 							"name": "support.type"
@@ -219,7 +219,7 @@
 				},
 				{
 					"name": "comment",
-					"match": "#([^`&()\\[\\]{}|:\".\\s#%^\\\\;,']+)",
+					"match": "#([^`&()\\[\\]{}|:\".\\s#^\\\\;,']+)",
 					"captures": {
 						"1": {
 							"name": "support.type"
@@ -248,7 +248,7 @@
 				},
 				{
 					"name": "comment",
-					"match": "#([^`&()\\[\\]{}|:\".\\s#%^\\\\;,']+)",
+					"match": "#([^`&()\\[\\]{}|:\".\\s#^\\\\;,']+)",
 					"captures": {
 						"1": {
 							"name": "support.type"
@@ -277,7 +277,7 @@
 				},
 				{
 					"name": "comment",
-					"match": "#([^`&()\\[\\]{}|:\".\\s#%^\\\\;,']+)",
+					"match": "#([^`&()\\[\\]{}|:\".\\s#^\\\\;,']+)",
 					"captures": {
 						"1": {
 							"name": "support.type"
@@ -306,7 +306,7 @@
 				},
 				{
 					"name": "comment",
-					"match": "#([^`&()\\[\\]{}|:\".\\s#%^\\\\;,']+)",
+					"match": "#([^`&()\\[\\]{}|:\".\\s#^\\\\;,']+)",
 					"captures": {
 						"1": {
 							"name": "support.type"
@@ -340,7 +340,7 @@
 				},
 				{
 					"name": "comment",
-					"match": "#([^`&()\\[\\]{}|:\".\\s#%^\\\\;,']+)",
+					"match": "#([^`&()\\[\\]{}|:\".\\s#^\\\\;,']+)",
 					"captures": {
 						"1": {
 							"name": "support.type"
@@ -365,7 +365,7 @@
 		},
 		{
 			"name": "string",
-			"match": "'[^`&()\\[\\]{}|:\".\\s#%^\\\\;,']+"
+			"match": "'[^`&()\\[\\]{}|:\".\\s#^\\\\;,']+"
 		},
 		{
 			"name": "comment",
@@ -466,11 +466,11 @@
 		},
 		{
 			"name": "invalid.illegal",
-			"match": "[#%^\\\\';,]"
+			"match": "[#^\\\\';,]"
 		},
 		{
 			"name": "constant.language",
-			"match": "[^`&()\\[\\]{}|:\".\\s#%^\\\\;,']+(_)",
+			"match": "[^`&()\\[\\]{}|:\".\\s#^\\\\;,']+(_)",
 			"captures": {
 				"1": {
 					"name": "keyword"
@@ -479,11 +479,11 @@
 		},
 		{
 			"name": "invalid.illegal",
-			"match": "(!|<|<-|>|actor|any|arguments|boolean|continue|data|declare|del?|delete|do-until|do-while|enum|eval|final|flags|float|float128|float32|float64|from|implements|implicit|in|instanceof|int|int16|int32|int64|int8|interface|is|macro|meta|mixed|move|mut|native|number|object|on|operator|out|package|private|protected|ptr|public|pure|readonly|return|sealed|send|shared|sizeof|string|struct|symbol|synchronized|throws|to|transient|type|typeof|uint|uint16|uint32|uint64|uint8|until|use|void|volatile|while)(?=[`&()\\[\\]{}|:\".\\s#%^\\\\;,'])"
+			"match": "(!|<|<-|>|actor|any|arguments|bignum|boolean|complex|continue|data|decimal|decimal128|decimal32|decimal64|declare|del?|delete|do-until|do-while|enum|eval|final|flags|float|float128|float32|float64|from|implements|implicit|in|instanceof|int|int16|int32|int64|int8|interface|is|macro|meta|mixed|move|mut|native|number|object|on|operator|out|package|private|protected|ptr|public|pure|rational|readonly|return|sealed|send|shared|sizeof|string|struct|symbol|synchronized|throws|to|transient|type|typeof|uint|uint16|uint32|uint64|uint8|until|use|void|volatile|while)(?=[`&()\\[\\]{}|:\".\\s#^\\\\;,'])"
 		},
 		{
 			"name": "keyword",
-			"match": "(&|'|->|@for|_|abstract|and|as|assert|break|built|case|catch|class|cond|construct|debugger|del|do|else|except|extends|false|finally|for|forbid|get|if|ignore|import|import!|import~|method|my|name|new|not|null|of|or|override|pass|pipe|region|set|static|super|switch|throw|todo|trait|trait!|true|try|undefined|unless|virtual|with|yield|~|this|\\$|\\$for|yield\\*)(?=[`&()\\[\\]{}|:\".\\s#%^\\\\;,'])"
+			"match": "(\\$|\\$for|%|&|'|\\*|\\*\\*|\\+|-|->|\\/|<\\?|>\\?|@for|_|abstract|and|as|assert|break|built|case|catch|class|cond|construct|debugger|del|do|else|except|extends|false|finally|for|forbid|get|if|ignore|import|import!|import~|method|my|name|neg|new|not|null|of|or|override|pass|pipe|region|set|static|super|switch|throw|todo|trait|trait!|true|try|undefined|unless|virtual|with|yield|yield\\*|~|this|==?\\?)(?=[`&()\\[\\]{}|:\".\\s#^\\\\;,'])"
 		},
 		{
 			"name": "keyword",
@@ -491,7 +491,7 @@
 		},
 		{
 			"name": "none",
-			"match": "[^`&()\\[\\]{}|:\".\\s#%^\\\\;,']+"
+			"match": "[^`&()\\[\\]{}|:\".\\s#^\\\\;,']+"
 		}
 	]
 }
