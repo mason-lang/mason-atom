@@ -3,7 +3,7 @@ import
 	mason-compile.lib.info keywords reservedKeywords
 	msl.lib.Object map-object-values
 
-convert-captures = |case
+convert-captures = \case
 	:Str
 		todo SYNTAX (name. _)
 		"1".
@@ -13,16 +13,16 @@ convert-captures = |case
 		map-object-values _ |capture-class
 			name. capture-class
 
-nm = |-name:Str match:RegExp
+nm = \-name:Str match:RegExp
 	name. -name
 	'match. match.source
 
-nmc = |-name:Str match:RegExp captures
+nmc = \-name:Str match:RegExp captures
 	name. -name
 	'match. match.source
 	'captures. convert-captures captures
 
-section = |-name:Str begin:RegExp end:RegExp opts:Object
+section = \-name:Str begin:RegExp end:RegExp opts:Object
 	name. -name
 	'begin. begin.source
 	'end. end.source
@@ -83,7 +83,7 @@ patterns =
 	. nm 'keyword `\.`
 
 	|| Function
-	. section 'variable `((\*|\$)?\!?\|)` `\n`
+	. section 'variable `((\*|\$)?\!?\\)` `\n`
 		beginCaptures. 'comment
 		patterns.
 			. nmc "support.type" `(:)\S+` 'comment
