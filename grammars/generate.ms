@@ -10,7 +10,7 @@ convert-captures = \case
 			name. _
 	else
 		todo SYNTAX &(name. _)
-		map-object-values _ |capture-class
+		map-object-values _ \capture-class
 			name. capture-class
 
 nm = \-name:Str match:RegExp
@@ -77,7 +77,7 @@ patterns =
 	. nm "constant.numeric" `-?\d+(\.\d+)?`
 
 	|| type test (type *not* in fun or assign)
-	. nmc "support.type" `(:)\S+` 'comment
+	. nmc "support.type" `(:)[^\s=]+` 'comment
 
 	|| MemberAccess
 	. nm 'keyword `\.`
@@ -91,12 +91,11 @@ patterns =
 	. nm "support.type" `&`
 
 	|| AssignSingle
-	. nmc "entity.other.attribute-name" `([^\s\.:]+)((:)([^\s\.]+))?((\.)|\s((=)|(:=)))\s`
+	. nmc "entity.other.attribute-name" `([^\s\.:]+)((:)([^\s\.]+))?((\.)|\s(=))\s`
 		"3". 'comment || : before type
 		"4". "support.type" || type
 		"6". 'comment || '. '
-		"8". 'comment || =
-		"9". "entity.name.tag" || :=
+		"7". 'comment || =
 
 	|| reserved character
 	. nm "invalid.illegal" `[\#^\\';,]`
@@ -114,7 +113,7 @@ patterns =
 				_.replace `\?`g "\\?"
 
 	|| `this` isn't implemented as a keyword but should be highlighted.
-	extra-keywords = `this|==?\?`
+	extra-keywords = `this|==?\?|<=\?|>=\?|:=`
 	. nm 'keyword `(#(=> String escaped-keywords "|")|#extra-keywords)#rgx-break-ahead`
 	. nm 'keyword `~`
 

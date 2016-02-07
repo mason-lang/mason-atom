@@ -403,7 +403,7 @@
 		},
 		{
 			"name": "support.type",
-			"match": "(:)\\S+",
+			"match": "(:)[^\\s=]+",
 			"captures": {
 				"1": {
 					"name": "comment"
@@ -445,7 +445,7 @@
 		},
 		{
 			"name": "entity.other.attribute-name",
-			"match": "([^\\s\\.:]+)((:)([^\\s\\.]+))?((\\.)|\\s((=)|(:=)))\\s",
+			"match": "([^\\s\\.:]+)((:)([^\\s\\.]+))?((\\.)|\\s(=))\\s",
 			"captures": {
 				"3": {
 					"name": "comment"
@@ -456,11 +456,8 @@
 				"6": {
 					"name": "comment"
 				},
-				"8": {
+				"7": {
 					"name": "comment"
-				},
-				"9": {
-					"name": "entity.name.tag"
 				}
 			}
 		},
@@ -483,7 +480,7 @@
 		},
 		{
 			"name": "keyword",
-			"match": "(\\$|\\$for|%|&|'|\\*|\\*\\*|\\+|-|->|\\/|<\\?|>\\?|@for|_|abstract|and|as|assert|break|built|case|catch|class|cond|construct|debugger|del|do|else|except|extends|false|finally|for|forbid|get|if|ignore|import|import!|import~|method|my|name|neg|new|not|null|of|or|override|pass|pipe|region|set|static|super|switch|throw|todo|trait|trait!|true|try|undefined|unless|virtual|with|yield|yield\\*|~|this|==?\\?)(?=[`&()\\[\\]{}|:\".\\s#^\\\\;,'])"
+			"match": "(!\\|\\$|\\$!\\|\\$\\|\\$for|%|&|'|\\*|\\*!\\|\\*\\*|\\*\\|\\+|-|->|\\/|<\\?|>\\?|@for|_|abstract|and|as|assert|break|built|case|catch|class|cond|construct|debugger|del|do|else|except|extends|false|finally|for|forbid|get|if|ignore|import|import!|import~|my|name|neg|new|not|null|of|or|override|pass|pipe|poly|region|set|static|super|switch|throw|todo|trait|trait!|true|try|undefined|unless|virtual|with|yield|yield\\*|~|this|==?\\?|<=\\?|>=\\?|:=)(?=[`&()\\[\\]{}|:\".\\s#^\\\\;,'])"
 		},
 		{
 			"name": "keyword",
