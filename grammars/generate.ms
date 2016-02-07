@@ -5,13 +5,9 @@ import
 
 convert-captures = \case
 	:Str
-		todo SYNTAX (name. _)
-		"1".
-			name. _
-	else
-		todo SYNTAX &(name. _)
-		map-object-values _ \capture-class
-			name. capture-class
+		"1". {name. _}
+	:Object
+		map-object-values _ &({name. _})
 
 nm = \-name:Str match:RegExp
 	name. -name
@@ -48,7 +44,7 @@ patterns =
 	for i of 0..9
 		begin = `^\t{#i}[^\t"]*"$`
 		end = `^\t{,#i}(?=[^\t])`
-		. section 'string begin end (patterns. quote-patterns)
+		. section 'string begin end {patterns. quote-patterns}
 
 	|| regexp
 	. section 'string `\`` `\`(g?i?m?y?)|(.(?=\n))`
@@ -57,7 +53,9 @@ patterns =
 		patterns. quote-patterns
 
 	|| one-line quote
-	. section 'string `"` `"|(.(?=\n))` (endCaptures. "invalid.illegal" patterns. quote-patterns)
+	. section 'string `"` `"|(.(?=\n))`
+		endCaptures. "invalid.illegal"
+		patterns. quote-patterns
 
 	|| simple quote
 	. nm 'string `'#rgx-id`
@@ -70,7 +68,7 @@ patterns =
 	. nmc 'comment `^\s*(todo)[^\n]*\n` 'keyword
 
 	|| bracket
-	. nm "punctuation.section.embedded" `[\(\[\]\)]`
+	. nm "punctuation.section.embedded" `[\(\[\]\)\{\}]`
 
 	|| NumberLiteral
 	. nmc "constant.numeric" `-?0(b|o|x)[0-9a-f]+` "constant.character.escape"

@@ -323,11 +323,7 @@
 					}
 				}
 			],
-			"endCaptures": {
-				"2": {
-					"name": "invalid.illegal"
-				}
-			}
+			"endCaptures": {}
 		},
 		{
 			"name": "string",
@@ -386,7 +382,7 @@
 		},
 		{
 			"name": "punctuation.section.embedded",
-			"match": "[\\(\\[\\]\\)]"
+			"match": "[\\(\\[\\]\\)\\{\\}]"
 		},
 		{
 			"name": "constant.numeric",
@@ -446,20 +442,7 @@
 		{
 			"name": "entity.other.attribute-name",
 			"match": "([^\\s\\.:]+)((:)([^\\s\\.]+))?((\\.)|\\s(=))\\s",
-			"captures": {
-				"3": {
-					"name": "comment"
-				},
-				"4": {
-					"name": "support.type"
-				},
-				"6": {
-					"name": "comment"
-				},
-				"7": {
-					"name": "comment"
-				}
-			}
+			"captures": {}
 		},
 		{
 			"name": "invalid.illegal",
